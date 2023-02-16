@@ -1080,7 +1080,8 @@ class AudioService {
   /// This may be used for your own purposes. [arguments] can be any data that
   /// is encodable by `StandardMessageCodec`.
   static Future customAction(String name, [dynamic arguments]) async {
-    return await _channel.invokeMethod('$_CUSTOM_PREFIX$name', arguments);
+    return Future.value(true);
+//    return await _channel.invokeMethod('$_CUSTOM_PREFIX$name', arguments);
   }
 
   /// A stream tracking the current position, suitable for animating a seek bar.
@@ -1281,7 +1282,8 @@ class AudioServiceBackground {
     );
     try {
       await _task.onStart(params);
-    } catch (e) {} finally {
+    } catch (e) {
+    } finally {
       // For now, we return successfully from AudioService.start regardless of
       // whether an exception occurred in onStart.
       await _backgroundChannel.invokeMethod('started');
