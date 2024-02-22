@@ -10,7 +10,10 @@ environment:
 dependencies:
   audio_session: ^0.1.18
   rxdart: ^0.27.7
-  flutter_isolate: ^2.0.0
+  flutter_isolate:
+    git:
+      url: https://github.com/Stardust2water/flutter_isolate/tree/master.git
+      ref: master
   flutter_cache_manager: ^3.3.1
   js: ^0.6.3
   flutter:
